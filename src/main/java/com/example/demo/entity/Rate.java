@@ -1,12 +1,37 @@
-package com.example.demo;
+package com.example.demo.entity;
 
+import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.DynamicUpdate;
+
+import javax.persistence.*;
+
+@Entity
+@DynamicUpdate
 public class Rate  {
-    private String baseCurrency;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String date;
+    @Expose
     private String currency;
-    private String saleRateNB;
-    private String purchaseRateNB;
+    @Expose
     private String saleRate;
+    @Expose
     private String purchaseRate;
+    @Transient
+    private String baseCurrency;
+    @Transient
+    private String saleRateNB;
+    @Transient
+    private String purchaseRateNB;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getBaseCurrency() {
         return baseCurrency;
@@ -38,6 +63,14 @@ public class Rate  {
 
     public String getPurchaseRate() {
         return purchaseRate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setPurchaseRate(String purchaseRate) {

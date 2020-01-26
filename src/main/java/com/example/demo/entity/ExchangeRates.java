@@ -1,14 +1,22 @@
-package com.example.demo;
+package com.example.demo.entity;
+
+import com.google.gson.annotations.Expose;
 
 import java.util.List;
 
 
 public class ExchangeRates {
-
+    public ExchangeRates() {
+    }
+    @Expose
     private String date;
+    @Expose
     private String bank;
+    @Expose
     private String baseCurrency;
+    @Expose
     private String baseCurrencyLit;
+    @Expose
     private List< Rate > exchangeRate;
 
     public String getBank() {
@@ -26,7 +34,6 @@ public class ExchangeRates {
     public String getDate() {
         return date;
     }
-
 
     public List<Rate> getExchangeRate() {
         return exchangeRate;
